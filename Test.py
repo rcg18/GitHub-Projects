@@ -1,3 +1,3 @@
 # This is a print statement
-print("Bye World")
+print("Bye Friend")
 print("Bye World")
