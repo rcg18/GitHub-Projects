@@ -9,8 +9,8 @@ int main()
 {
     int i;
     int points = 100;
+    bool choice = true;
     string userName;
-    bool valid = true;
     enum Operation
     {
         Add = 1,
@@ -27,21 +27,26 @@ int main()
 
     do
     {
+
         for (i = 0; i < userName.size(); ++i)
         {
-            if (isalpha(userName.at(i)) || isspace(userName.at(i)))
+            if (!(isalpha(userName.at(i)) || isspace(userName.at(i))))
             {
-                valid = true;
-                cout << "Welcome" << userName << endl;
+                choice = false;
+                break;
+            }
+
+            if (choice)
+            {
+                cout << "Welcome " << userName << "." << endl;
             }
             else
             {
-                valid = false;
-                cout << "Your name can only have alphabets or spaces. Enter again";
+                cout << "Wrong choice. Please enter again." << endl;
             }
         }
 
-    } while (valid != false);
+    } while (choice != false);
 
     return 0;
 }
