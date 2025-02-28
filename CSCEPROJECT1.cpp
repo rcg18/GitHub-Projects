@@ -9,8 +9,8 @@ int main()
 {
     int i;
     int points = 100;
-    bool choice = true;
     string userName;
+    bool choice;
     enum Operation
     {
         Add = 1,
@@ -22,11 +22,13 @@ int main()
 
     enum Operation operation;
 
-    cout << "Enter your name: ";
-    getline(cin, userName);
-
     do
     {
+
+        choice = true;
+
+        cout << "Enter your name: ";
+        getline(cin, userName);
 
         for (i = 0; i < userName.size(); ++i)
         {
@@ -35,18 +37,18 @@ int main()
                 choice = false;
                 break;
             }
-
-            if (choice)
-            {
-                cout << "Welcome " << userName << "." << endl;
-            }
-            else
-            {
-                cout << "Wrong choice. Please enter again." << endl;
-            }
         }
 
-    } while (choice != false);
+        if (choice)
+        {
+            cout << "Welcome " << userName << endl;
+        }
+        else
+        {
+            cout << "Your name can only have alphabets or spaces. Enter again." << endl;
+        }
+
+    } while (!choice);
 
     return 0;
 }
