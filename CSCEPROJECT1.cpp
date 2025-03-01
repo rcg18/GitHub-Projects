@@ -54,7 +54,6 @@ int main()
 
         if (choice) // if true we will output the message
         {
-            cout << "Welcome " << userName << endl;
         }
         else
         {
@@ -62,6 +61,28 @@ int main()
         }
 
     } while (!choice);
+
+    bool word = true; // check every first word that the user enters
+    for (i = 0; i < userName.size(); ++i)
+    {
+        if (isalpha(userName.at(i)))
+        {
+            if (word)
+            {
+                userName.at(i) = toupper(userName.at(i)); // makes sure the first letter of each word will be capitalized
+                word = false;
+            }
+            else
+            {
+                userName.at(i) = tolower(userName.at(i)); // the rest of the remaining letters will be lowercase
+            }
+        }
+        else
+        {
+            word = true;
+        }
+    }
+    cout << "Welcome " << userName << endl;
 
     do
     {
